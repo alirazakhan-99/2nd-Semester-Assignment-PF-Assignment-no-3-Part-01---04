@@ -1,0 +1,84 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+// Problem 1: Second Lowest and Highest
+int secondLowest(int marks[], int size){
+    int lowest = marks[0];
+    int secondLowestValue = marks[0];
+    for (int i = 1; i < size; i++) {
+        if (marks[i] < lowest) {
+            secondLowestValue = lowest;
+            lowest = marks[i];
+        }
+        else if ((marks[i] < secondLowestValue || secondLowestValue == lowest) && marks[i] != lowest) {
+            secondLowestValue = marks[i];
+        }
+    }
+    return secondLowestValue;
+}
+
+int secondHighest(int marks[], int size){
+    int highest = marks[0];
+    int secondHighestValue = marks[0];
+    for (int i = 1; i < size; i++) {
+        if (marks[i] > highest) {
+            secondHighestValue = highest;
+            highest = marks[i];
+        }
+        else if ((marks[i] > secondHighestValue || secondHighestValue == highest) && marks[i] != highest) {
+            secondHighestValue = marks[i];
+        }
+    }
+    return secondHighestValue;
+}
+
+// Problem 2: Sum of Array
+int sumArray(int marks[], int size){
+    int sum = 0;
+    for (int i = 0; i < size; i++) {
+        sum = sum + marks[i];
+    }
+    return sum;
+}
+
+// Problem 3: Celsius to Fahrenheit
+double celsiusToFahrenheit(double celsius) {
+    return (celsius * 9.0 / 5.0) + 32;
+}
+
+// Problem 4: Leap Year Checker
+bool isLeapYear(int year) {
+    if ((year % 400 == 0) || (year % 4 == 0 && year % 100 != 0)) {
+        return true;
+    }
+    return false;
+}
+
+// Problem 5: Total Vowels Counter
+int totalVowels(char word[]) {
+    int total = 0;
+    for (int i = 0; word[i] != '\0'; i++) {
+        if (word[i] == 'a' || word[i] == 'e' || word[i] == 'i' || word[i] == 'o' || word[i] == 'u' ||
+            word[i] == 'A' || word[i] == 'E' || word[i] == 'I' || word[i] == 'O' || word[i] == 'U') {
+            total = total + 1;
+        }
+    }
+    return total;
+}
+
+int main() {
+    cout << "=== PF Assignment 3 Part 2 ===" << endl;
+    
+    double temp = 25.0;
+    cout << temp << " Celsius in Fahrenheit = " << celsiusToFahrenheit(temp) << endl;
+    
+    int year = 2024;
+    if(isLeapYear(year)) {
+        cout << year << " Is a Leap Year" << endl;
+    } else {
+        cout << year << " Is not a Leap Year" << endl;
+    }
+
+    return 0;
+}
