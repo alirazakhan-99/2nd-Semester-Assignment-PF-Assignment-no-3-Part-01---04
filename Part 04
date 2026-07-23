@@ -1,0 +1,59 @@
+#include <iostream>
+using namespace std;
+
+// Problem 1: Count Even and Odd Numbers
+int countEvenNumbers(int arr[], int size) {
+    int count = 0;
+    for(int i = 0; i < size; i++) {
+        if(arr[i] % 2 == 0) count++;
+    }
+    return count;
+}
+
+int countOddNumbers(int arr[], int size) {
+    int count = 0;
+    for(int i = 0; i < size; i++) {
+        if(arr[i] % 2 != 0) count++;
+    }
+    return count;
+}
+
+// Problem 3: Find GCD
+int findGCD(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+// Problem 4: Batting Strike Rate
+double calculateStrikeRate(int runs, int balls) {
+    return ((double) runs / balls) * 100;
+}
+
+// Problem 5: Get String Length
+int getLength(char arr[]) {
+    int length = 0;
+    for(int i = 0; arr[i] != '\0'; i++) {
+        length++;
+    }
+    return length;
+}
+
+// Problem 6: Copy String
+void copyWord(char src[], char dest[], int length) {
+    for(int i = 0; i < length; i++) {
+        dest[i] = src[i];
+    }
+    dest[length] = '\0';
+}
+
+int main() {
+    cout << "=== PF Assignment 3 Part 3 ===" << endl;
+    cout << "GCD of 48 and 18 is: " << findGCD(48, 18) << endl;
+    cout << "Batting Strike Rate (50 runs, 30 balls): " << calculateStrikeRate(50, 30) << endl;
+
+    return 0;
+}
