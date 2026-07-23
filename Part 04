@@ -1,59 +1,52 @@
 #include <iostream>
 using namespace std;
 
-// Problem 1: Count Even and Odd Numbers
-int countEvenNumbers(int arr[], int size) {
-    int count = 0;
-    for(int i = 0; i < size; i++) {
-        if(arr[i] % 2 == 0) count++;
-    }
-    return count;
+// Problem 3: Function Overloading for Area Calculation
+double calculateArea(double sideLength) {
+    return sideLength * sideLength;
 }
 
-int countOddNumbers(int arr[], int size) {
-    int count = 0;
-    for(int i = 0; i < size; i++) {
-        if(arr[i] % 2 != 0) count++;
-    }
-    return count;
+double calculateArea(double rectLength, double rectWidth) {
+    return rectLength * rectWidth;
 }
 
-// Problem 3: Find GCD
-int findGCD(int a, int b) {
-    while (b != 0) {
-        int temp = b;
-        b = a % b;
-        a = temp;
+// Problem 4: Bowling Average
+double getBowlingAverage(int runsConceded, int wicketsTaken) {
+    if (wicketsTaken == 0) {
+        return 0.0;
     }
-    return a;
+    return (double) runsConceded / wicketsTaken;
 }
 
-// Problem 4: Batting Strike Rate
-double calculateStrikeRate(int runs, int balls) {
-    return ((double) runs / balls) * 100;
+// Problem 5: Print Vertical Word
+void printVertical(char word[]) {
+    for (int i = 0; word[i] != '\0'; i++) {
+        cout << word[i] << endl;
+    }
 }
 
-// Problem 5: Get String Length
-int getLength(char arr[]) {
-    int length = 0;
-    for(int i = 0; arr[i] != '\0'; i++) {
-        length++;
+// Problem 6: Reverse Word
+void reverseWord(char word[], int size) {
+    int start = 0;
+    int end = size - 1;
+    while (start < end) {
+        char temp = word[start];
+        word[start] = word[end];
+        word[end] = temp;
+        start++;
+        end--;
     }
-    return length;
-}
-
-// Problem 6: Copy String
-void copyWord(char src[], char dest[], int length) {
-    for(int i = 0; i < length; i++) {
-        dest[i] = src[i];
-    }
-    dest[length] = '\0';
 }
 
 int main() {
-    cout << "=== PF Assignment 3 Part 3 ===" << endl;
-    cout << "GCD of 48 and 18 is: " << findGCD(48, 18) << endl;
-    cout << "Batting Strike Rate (50 runs, 30 balls): " << calculateStrikeRate(50, 30) << endl;
+    cout << "=== PF Assignment 3 Part 4 ===" << endl;
+    
+    cout << "Area of Square (Side = 4.0): " << calculateArea(4.0) << endl;
+    cout << "Area of Rectangle (5.0 x 3.0): " << calculateArea(5.0, 3.0) << endl;
+    
+    char word[] = "Code";
+    reverseWord(word, 4);
+    cout << "Reversed Word: " << word << endl;
 
     return 0;
 }
