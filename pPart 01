@@ -1,0 +1,72 @@
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+// Problem 1: Average in an Array
+double calculateAverage(int scores[], int size) {
+    int sum = 0;
+    for(int i = 0; i < size; i++) sum += scores[i];
+    return (double)sum / size;
+}
+
+// Problem 2: Largest and Smallest Values in an Array
+void findMinMax(int arr[], int size, int &minVal, int &maxVal) {
+    minVal = arr[0];
+    maxVal = arr[0];
+    for(int i = 1; i < size; i++) {
+        if(arr[i] < minVal) minVal = arr[i];
+        if(arr[i] > maxVal) maxVal = arr[i];
+    }
+}
+
+// Problem 3: Custom Power Function
+double calculatePower(double base, int exponent) {
+    double result = 1.0;
+    int absExponent = (exponent < 0) ? -exponent : exponent;
+    for(int i = 0; i < absExponent; i++) {
+        result *= base;
+    }
+    if(exponent < 0) {
+        return 1.0 / result;
+    }
+    return result;
+}
+
+// Problem 4: Voltage Calculator
+double calculateVoltage(double current, double resistance) {
+    return current * resistance;
+}
+
+// Problem 5: Cricket Team Initial Finder
+void displayInitials(char names[][50], int teamSize) {
+    cout << "Team Initials: ";
+    for(int i = 0; i < teamSize; i++) {
+        if(names[i][0] != '\0') {
+            cout << names[i][0] << " ";
+        }
+    }
+    cout << endl;
+}
+
+// Problem 6: Word Length Calculator
+int calculateWordLength(char word[]) {
+    int length = 0;
+    while(word[length] != '\0') {
+        length++;
+    }
+    return length;
+}
+
+int main() {
+    cout << "=== PF Assignment 3 Part 1 ===" << endl;
+    
+    // Testing Problem 1
+    int scoresArr[] = {85, 90, 78, 92, 88};
+    cout << "Average Score: " << calculateAverage(scoresArr, 5) << endl;
+    
+    // Testing Problem 4
+    double current = 5.0, resistance = 10.0;
+    cout << "Calculated Voltage = " << calculateVoltage(current, resistance) << " Volts" << endl;
+
+    return 0;
+}
